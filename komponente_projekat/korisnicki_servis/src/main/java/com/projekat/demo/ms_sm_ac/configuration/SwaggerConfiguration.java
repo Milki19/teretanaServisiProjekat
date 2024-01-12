@@ -1,6 +1,6 @@
 package com.projekat.demo.ms_sm_ac.configuration;
 
-import com.projekat.demo.ms_sm_ac.controller.UserController;
+import com.projekat.demo.ms_sm_ac.controller.ClientController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -20,7 +20,7 @@ public class SwaggerConfiguration {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .useDefaultResponseMessages(false)
-                .select().apis(RequestHandlerSelectors.basePackage(UserController.class.getPackage().getName()))
+                .select().apis(RequestHandlerSelectors.basePackage(ClientController.class.getPackage().getName()))
                 .build()
                 .apiInfo(metaData());
     }

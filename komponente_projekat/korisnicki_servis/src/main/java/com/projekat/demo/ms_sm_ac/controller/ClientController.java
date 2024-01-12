@@ -36,17 +36,17 @@ public class ClientController {
 //        return new ResponseEntity<>(userService.findAll(pageable), HttpStatus.OK);
 //    }
 
-    @ApiOperation(value = "Register user")
-    @PostMapping
-    public ResponseEntity<ClientDto> saveUser(@RequestBody @Valid ClientCreateDto userCreateDto) {
-        return new ResponseEntity<>(clientService.add(userCreateDto), HttpStatus.CREATED);
-    }
+//    @ApiOperation(value = "Register user")
+//    @PostMapping
+//    public ResponseEntity<ClientDto> saveUser(@RequestBody @Valid ClientCreateDto userCreateDto) {
+//        return new ResponseEntity<>(clientService.add(userCreateDto), HttpStatus.CREATED);
+//    }
 
-    @ApiOperation(value = "Login")
-    @PostMapping("/login")
-    public ResponseEntity<TokenResponseDto> loginUser(@RequestBody @Valid TokenRequestDto tokenRequestDto) {
-        return new ResponseEntity<>(clientService.login(tokenRequestDto), HttpStatus.OK);
-    }
+//    @ApiOperation(value = "Login")
+//    @PostMapping("/login")
+//    public ResponseEntity<TokenResponseDto> loginUser(@RequestBody @Valid TokenRequestDto tokenRequestDto) {
+//        return new ResponseEntity<>(clientService.login(tokenRequestDto), HttpStatus.OK);
+//    }
 
     @GetMapping
     public ResponseEntity<Page<ClientDto>> findAll(@ApiIgnore Pageable pageable){

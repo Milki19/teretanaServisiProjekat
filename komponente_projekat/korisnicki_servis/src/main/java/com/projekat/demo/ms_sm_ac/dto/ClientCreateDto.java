@@ -5,6 +5,8 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class ClientCreateDto {
@@ -16,10 +18,8 @@ public class ClientCreateDto {
     @NotBlank
     private String lastName;
     @NotBlank
-    private String userName;
-    @NotBlank
-    private Date birthDate;
-    @NotBlank
+    private String username;
+    private LocalDate birthDate;
     private UserType userType;
     @Length(min = 8, max = 20)
     private String password;
@@ -48,19 +48,19 @@ public class ClientCreateDto {
         this.lastName = lastName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

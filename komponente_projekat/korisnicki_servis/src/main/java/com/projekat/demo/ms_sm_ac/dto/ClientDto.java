@@ -2,6 +2,7 @@ package com.projekat.demo.ms_sm_ac.dto;
 
 import com.projekat.demo.ms_sm_ac.domain.UserType;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class ClientDto {
@@ -11,7 +12,7 @@ public class ClientDto {
     private String firstName;
     private String lastName;
     private String username;
-    private Date birthDate;
+    private LocalDate birthDate;
     private UserType userType;
     private String password;
 
@@ -55,11 +56,11 @@ public class ClientDto {
         this.username = username;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

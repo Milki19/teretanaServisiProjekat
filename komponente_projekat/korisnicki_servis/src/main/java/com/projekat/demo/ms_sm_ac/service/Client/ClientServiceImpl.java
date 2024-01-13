@@ -60,11 +60,13 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public ClientDto findById(Long id) {
-        return null;
+        return clientRepository.findById(id)
+                .map(clientMapper::clientToClientDto)
+                .orElseThrow(() -> new NotFoundException("Client not found with id: " + id));
     }
 
     @Override
     public void deleteById(Long id) {
-
+        clientRepository.deleteById(id);
     }
 }

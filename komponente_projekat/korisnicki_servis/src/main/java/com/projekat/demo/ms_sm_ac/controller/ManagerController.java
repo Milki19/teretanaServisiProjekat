@@ -1,11 +1,8 @@
 package com.projekat.demo.ms_sm_ac.controller;
 
-import com.projekat.demo.ms_sm_ac.dto.TokenRequestDto;
-import com.projekat.demo.ms_sm_ac.dto.TokenResponseDto;
 import com.projekat.demo.ms_sm_ac.dto.ClientCreateDto;
 import com.projekat.demo.ms_sm_ac.dto.ClientDto;
 import com.projekat.demo.ms_sm_ac.service.Client.ClientService;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -16,37 +13,13 @@ import springfox.documentation.annotations.ApiIgnore;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/client")
-public class ClientController {
-
+@RequestMapping("/manager")
+public class ManagerController {
     private ClientService clientService;
 
-//    GLUPOST NEKA CRVENI SE
-        public ClientController(ClientService clientService1) {
+    public ManagerController(ClientService clientService1) {
         this.clientService = clientService1;
     }
-
-
-    //PRILAGODITI NASEM NACINU ROLOVANJA
-//    @GetMapping
-//    @CheckSecurity(roles = {"ROLE_ADMIN", "ROLE_USER"})
-//    public ResponseEntity<Page<UserDto>> getAllUsers(@RequestHeader("Authorization") String authorization,
-//                                                     Pageable pageable) {
-//
-//        return new ResponseEntity<>(userService.findAll(pageable), HttpStatus.OK);
-//    }
-
-//    @ApiOperation(value = "Register user")
-//    @PostMapping
-//    public ResponseEntity<ClientDto> saveUser(@RequestBody @Valid ClientCreateDto userCreateDto) {
-//        return new ResponseEntity<>(clientService.add(userCreateDto), HttpStatus.CREATED);
-//    }
-
-//    @ApiOperation(value = "Login")
-//    @PostMapping("/login")
-//    public ResponseEntity<TokenResponseDto> loginUser(@RequestBody @Valid TokenRequestDto tokenRequestDto) {
-//        return new ResponseEntity<>(clientService.login(tokenRequestDto), HttpStatus.OK);
-//    }
 
     @GetMapping
     public ResponseEntity<Page<ClientDto>> findAll(@ApiIgnore Pageable pageable){
@@ -68,7 +41,4 @@ public class ClientController {
         clientService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-    //Dodati jos ako treba
-
 }

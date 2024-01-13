@@ -3,6 +3,7 @@ package com.projekat.demo.ms_sm_ac.domain;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -16,7 +17,7 @@ public class Client {
     private String username;
     private String password;
     private String email;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String firstName;
     private String lastName;
     @Enumerated(value = EnumType.STRING)
@@ -59,11 +60,11 @@ public class Client {
         this.email = email;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

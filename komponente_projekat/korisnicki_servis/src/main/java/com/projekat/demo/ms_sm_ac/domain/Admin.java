@@ -4,6 +4,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -17,7 +18,7 @@ public class Admin {
     private String username;
     private String password;
     private String email;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String firstName;
     private String lastName;
     @Enumerated(value = EnumType.STRING)
@@ -55,11 +56,11 @@ public class Admin {
         this.email = email;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

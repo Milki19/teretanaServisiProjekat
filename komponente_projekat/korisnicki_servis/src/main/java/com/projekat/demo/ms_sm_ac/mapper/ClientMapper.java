@@ -20,11 +20,14 @@ public class ClientMapper {
         clientDto.setBirthDate(client.getBirthDate());
         clientDto.setEmail(client.getEmail());
         clientDto.setPassword(client.getPassword());
+        if(!client.getUserType().toString().equals("CLIENT")){
+            return null;
+        }
         clientDto.setUserType(client.getUserType());
         return clientDto;
     }
 
-    public Client clientCreateDtoToClient(ClientCreateDto clientCreateDto){
+    public Client clientCreateDtoToClient(ClientCreateDto clientCreateDto) throws Exception {
         Client client = new Client();
         client.setFirstName(clientCreateDto.getFirstName());
         client.setLastName(clientCreateDto.getLastName());
@@ -32,6 +35,9 @@ public class ClientMapper {
         client.setBirthDate(clientCreateDto.getBirthDate());
         client.setEmail(clientCreateDto.getEmail());
         client.setPassword(clientCreateDto.getPassword());
+        if(!clientCreateDto.getUserType().toString().equals("CLIENT")){
+            throw new Exception("You can't add someone if they are not a client.");
+        }
         client.setUserType(clientCreateDto.getUserType());
         return client;
     }

@@ -4,6 +4,7 @@ package com.projekat.demo.ms_sm_ac.domain;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -17,14 +18,14 @@ public class Manager {
     private String username;
     private String password;
     private String email;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String firstName;
     private String lastName;
     @Enumerated(value = EnumType.STRING)
     private UserType userType;
 
     private String gymnasiumName;
-    private Date whenStarted;
+    private LocalDate whenStarted;
 
     public Long getId() {
         return id;
@@ -58,11 +59,11 @@ public class Manager {
         this.email = email;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -98,11 +99,11 @@ public class Manager {
         this.gymnasiumName = gymnasiumName;
     }
 
-    public Date getWhenStarted() {
+    public LocalDate getWhenStarted() {
         return whenStarted;
     }
 
-    public void setWhenStarted(Date whenStarted) {
+    public void setWhenStarted(LocalDate whenStarted) {
         this.whenStarted = whenStarted;
     }
 }

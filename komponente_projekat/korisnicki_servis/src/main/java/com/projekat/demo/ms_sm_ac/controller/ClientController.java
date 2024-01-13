@@ -59,7 +59,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<ClientDto> add(@RequestBody @Valid ClientCreateDto clientCreateDto){
+    public ResponseEntity<ClientDto> add(@RequestBody @Valid ClientCreateDto clientCreateDto) throws Exception {
         return new ResponseEntity<>(clientService.add(clientCreateDto), HttpStatus.CREATED);
     }
 

@@ -2,7 +2,10 @@ package com.projekat.demo.ms_sm_ac.controller;
 
 import com.projekat.demo.ms_sm_ac.dto.ClientCreateDto;
 import com.projekat.demo.ms_sm_ac.dto.ClientDto;
+import com.projekat.demo.ms_sm_ac.dto.ManagerCreateDto;
+import com.projekat.demo.ms_sm_ac.dto.ManagerDto;
 import com.projekat.demo.ms_sm_ac.service.Client.ClientService;
+import com.projekat.demo.ms_sm_ac.service.Manager.ManagerService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -15,30 +18,30 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/manager")
 public class ManagerController {
-    private ClientService clientService;
+    private ManagerService managerService;
 
-    public ManagerController(ClientService clientService1) {
-        this.clientService = clientService1;
+    public ManagerController(ManagerService managerService1) {
+        this.managerService = managerService1;
     }
 
     @GetMapping
-    public ResponseEntity<Page<ClientDto>> findAll(@ApiIgnore Pageable pageable){
-        return new ResponseEntity<>(clientService.findAll(pageable), HttpStatus.OK);
+    public ResponseEntity<Page<ManagerDto>> findAll(@ApiIgnore Pageable pageable){
+        return new ResponseEntity<>(managerService.findAll(pageable), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ClientDto> findById(@PathVariable("id") Long id){
-        return new ResponseEntity<>(clientService.findById(id), HttpStatus.OK);
+    public ResponseEntity<ManagerDto> findById(@PathVariable("id") Long id){
+        return new ResponseEntity<>(managerService.findById(id), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<ClientDto> add(@RequestBody @Valid ClientCreateDto clientCreateDto){
-        return new ResponseEntity<>(clientService.add(clientCreateDto), HttpStatus.CREATED);
+    public ResponseEntity<ManagerDto> add(@RequestBody @Valid ManagerCreateDto managerCreateDto) throws Exception {
+        return new ResponseEntity<>(managerService.add(managerCreateDto), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Long id){
-        clientService.deleteById(id);
+        managerService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

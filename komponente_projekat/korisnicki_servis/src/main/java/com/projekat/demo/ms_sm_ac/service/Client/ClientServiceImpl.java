@@ -37,7 +37,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public ClientDto add(ClientCreateDto clientCreateDto) {
+    public ClientDto add(ClientCreateDto clientCreateDto) throws Exception {
         Client client = clientMapper.clientCreateDtoToClient(clientCreateDto);
         clientRepository.save(client);
         return clientMapper.clientToClientDto(client);

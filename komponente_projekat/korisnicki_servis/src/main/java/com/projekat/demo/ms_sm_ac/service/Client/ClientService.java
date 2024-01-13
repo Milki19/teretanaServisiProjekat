@@ -12,7 +12,7 @@ public interface ClientService {
     
     Page<ClientDto> findAll(Pageable pageable);
 
-    ClientDto add(ClientCreateDto userCreateDto);
+    ClientDto add(ClientCreateDto userCreateDto) throws Exception;
 
     TokenResponseDto login(TokenRequestDto tokenRequestDto);
 

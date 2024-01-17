@@ -2,7 +2,10 @@ package com.projekat.notification_service.ms_sm_ac.controller;
 
 import com.projekat.notification_service.ms_sm_ac.dto.ManagerCreateDto;
 import com.projekat.notification_service.ms_sm_ac.dto.ManagerDto;
+import com.projekat.notification_service.ms_sm_ac.dto.TokenRequestDto;
+import com.projekat.notification_service.ms_sm_ac.dto.TokenResponseDto;
 import com.projekat.notification_service.ms_sm_ac.service.Manager.ManagerService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -40,5 +43,11 @@ public class ManagerController {
     public ResponseEntity<?> delete(@PathVariable("id") Long id){
         managerService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "Login")
+    @PostMapping("/login")
+    public ResponseEntity<TokenResponseDto> loginUser(@RequestBody @Valid TokenRequestDto tokenRequestDto) {
+        return new ResponseEntity<>(managerService.login(tokenRequestDto), HttpStatus.OK);
     }
 }

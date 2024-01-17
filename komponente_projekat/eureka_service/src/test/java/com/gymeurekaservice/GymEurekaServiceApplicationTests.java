@@ -1,10 +1,10 @@
-package raf.gymapigateway;
+package com.gymeurekaservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GymApiGatewayApplicationTests {
+class GymEurekaServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -41,11 +41,11 @@ public class AppointmentController {
         return new ResponseEntity<>(appointmentService.findById(id), HttpStatus.OK);
     }
 
-    @GetMapping("/gym/{id}")
-    @CheckSecurity(roles = {"ROLE_ADMIN", "ROLE_CLIENT", "ROLE_MANAGER"})
-    public ResponseEntity<List<AppointmentDto>> getAppointmentsByGymID(@RequestHeader("Authorization") String authorization, @PathVariable("id") Long id){
-        return new ResponseEntity<>(appointmentService.findByGymId(id), HttpStatus.OK);
-    }
+//    @GetMapping("/gym/{id}")
+//    @CheckSecurity(roles = {"ROLE_ADMIN", "ROLE_CLIENT", "ROLE_MANAGER"})
+//    public ResponseEntity<List<AppointmentDto>> getAppointmentsByGymID(@RequestHeader("Authorization") String authorization, @PathVariable("id") Long id){
+//        return new ResponseEntity<>(appointmentService.findByGymId(id), HttpStatus.OK);
+//    }
 
     @PostMapping
     @CheckSecurity(roles = {"ROLE_ADMIN", "ROLE_MANAGER"})

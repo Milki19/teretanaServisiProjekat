@@ -56,17 +56,17 @@ public class AppointmentServiceImpl implements AppointmentService {
         return appointmentMapper.appointmentToAppointmentDto(appointment);
     }
 
-    @Override
-    public List<AppointmentDto> findByGymId(Long id) {
-        List<Appointment> list = appointmentRepository.findAppointmentsByGymTrainingGymId(id);
-        List<AppointmentDto> res = new ArrayList<>();
-
-        for(Appointment a: list){
-            res.add(appointmentMapper.appointmentToAppointmentDto(a));
-        }
-
-        return res;
-    }
+//    @Override
+//    public List<AppointmentDto> findByGymId(Long id) {
+//        List<Appointment> list = appointmentRepository.findAppointmentsByGymTrainingGymId(id);
+//        List<AppointmentDto> res = new ArrayList<>();
+//
+//        for(Appointment a: list){
+//            res.add(appointmentMapper.appointmentToAppointmentDto(a));
+//        }
+//
+//        return res;
+//    }
 
     @Override
     public AppointmentDto add(AppointmentCreateDto appointmentCreateDto) {

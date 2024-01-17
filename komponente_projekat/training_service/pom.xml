@@ -14,7 +14,7 @@
 	<name>training_service</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 		<swagger.version>2.9.2</swagger.version>
 		<spring-cloud.version>Hoxton.SR1</spring-cloud.version>
 	</properties>
@@ -77,27 +77,18 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!--Retry-->
+		<!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-retry -->
 		<dependency>
 			<groupId>io.github.resilience4j</groupId>
 			<artifactId>resilience4j-retry</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>com.sun.tools.javac</groupId>
-					<artifactId>javac</artifactId>
-				</exclusion>
-			</exclusions>
+			<version>1.7.1</version>
 		</dependency>
 		<!--Bulkhead-->
 		<!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-bulkhead -->
 		<dependency>
 			<groupId>io.github.resilience4j</groupId>
 			<artifactId>resilience4j-bulkhead</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>com.sun.tools.javac</groupId>
-					<artifactId>javac</artifactId>
-				</exclusion>
-			</exclusions>
+			<version>1.7.1</version>
 		</dependency>
 		<!--Eureka-->
 		<dependency>

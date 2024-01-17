@@ -9,8 +9,10 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
+
+    Optional<Appointment> findAppointmentsByGymTrainingGymId(Long id);
     @Query("SELECT a FROM Appointment a WHERE a.training.gym.id = :gymId AND a.date BETWEEN :startDate AND :endDate")
-    Optional<Appointment> findAppointmentsByGymIdAndNextFiveDays(
+    Optional<Appointment> findAppointmentsForNextFiveDays(
             @Param("gymId") Long gymId,
             @Param("startDate") LocalDate startDate,
             @Param("endDate") LocalDate endDate

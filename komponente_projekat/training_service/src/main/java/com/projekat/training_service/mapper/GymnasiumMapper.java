@@ -3,7 +3,9 @@ package com.projekat.training_service.mapper;
 import com.projekat.training_service.domain.Gymnasium;
 import com.projekat.training_service.dto.GymnasiumCreateDto;
 import com.projekat.training_service.dto.GymnasiumDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GymnasiumMapper {
 
     public GymnasiumDto gymToGymDto(Gymnasium gym){

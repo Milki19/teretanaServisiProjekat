@@ -2,7 +2,9 @@ package com.projekat.training_service.mapper;
 
 import com.projekat.training_service.domain.Reservation;
 import com.projekat.training_service.dto.ReservationDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ReservationMapper {
 
     private AppointmentMapper appointmentMapper;

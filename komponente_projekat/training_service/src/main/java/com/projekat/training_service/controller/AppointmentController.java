@@ -4,14 +4,11 @@ import com.projekat.training_service.dto.AppointmentCreateDto;
 import com.projekat.training_service.dto.AppointmentDto;
 import com.projekat.training_service.security.CheckSecurity;
 import com.projekat.training_service.service.appointment.AppointmentService;
-import jakarta.validation.Valid;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,15 +21,6 @@ public class AppointmentController {
     public AppointmentController(AppointmentService appointmentService) {
         this.appointmentService = appointmentService;
     }
-
-    //    @ApiOperation(value = "Get all appointments")
-//    @ApiImplicitParams({
-//            @ApiImplicitParam(name = "page", value = "What page number you want", dataType = "string", paramType = "query"),
-//            @ApiImplicitParam(name = "size", value = "Number of items to return", dataType = "string", paramType = "query"),
-//            @ApiImplicitParam(name = "sort", allowMultiple = true, dataType = "string", paramType = "query",
-//                    value = "Sorting criteria in the format: property(,asc|desc). " +
-//                            "Default sort order is ascending. " +
-//                            "Multiple sort criteria are supported.")})
     @GetMapping
     @CheckSecurity(roles = {"ROLE_ADMIN", "ROLE_CLIENT", "ROLE_MANAGER"})
     public ResponseEntity<List<AppointmentDto>> getAll(@RequestHeader("Authorization") String authorization){

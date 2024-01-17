@@ -6,7 +6,9 @@ import com.projekat.training_service.dto.AppointmentCreateDto;
 import com.projekat.training_service.dto.AppointmentDto;
 import com.projekat.training_service.exceptions.NotFoundException;
 import com.projekat.training_service.repository.TrainingRepository;
+import org.springframework.stereotype.Component;
 
+@Component
 public class AppointmentMapper {
 
     private TrainingRepository trainingRepository;
@@ -23,7 +25,7 @@ public class AppointmentMapper {
         appointmentDto.setDate(appointment.getDate());
         appointmentDto.setStartTime(appointment.getStartTime());
         appointmentDto.setEndTime(appointment.getEndTime());
-        appointmentDto.setGymTrainingDto(trainingMapper.trainingToTrainingDto(appointment.getTraining()));
+        appointmentDto.setTrainingDto(trainingMapper.trainingToTrainingDto(appointment.getTraining()));
         appointmentDto.setCapacity(trainingMapper.trainingToTrainingDto(appointment.getTraining()).getGymnasiumDto().getCapacity());
         return appointmentDto;
     }
@@ -33,9 +35,9 @@ public class AppointmentMapper {
         appointment.setDate(appointmentCreateDto.getDate());
         appointment.setStartTime(appointmentCreateDto.getStartTime());
         appointment.setEndTime(appointmentCreateDto.getEndTime());
-        Training training = trainingRepository.findById(appointmentCreateDto.getGymTraining())
+        Training training = trainingRepository.findById(appointmentCreateDto.getTraining())
                 .orElseThrow(() -> new NotFoundException(String
-                        .format("Gym with id: %d does not exists.", appointmentCreateDto.getGymTraining())));
+                        .format("Gym with id: %d does not exists.", appointmentCreateDto.getTraining())));
         appointment.setTraining(training);
         appointment.setCapacity(training.getGym().getCapacity());
         return appointment;

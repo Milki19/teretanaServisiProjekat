@@ -11,5 +11,5 @@ public class AppointmentCreateDto {
     private LocalDate date;
     private String startTime;
     private String endTime;
-    private Long gymTraining;
+    private Long training;
 }

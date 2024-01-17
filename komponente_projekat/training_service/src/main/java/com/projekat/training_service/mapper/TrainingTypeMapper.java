@@ -3,7 +3,9 @@ package com.projekat.training_service.mapper;
 import com.projekat.training_service.domain.TrainingType;
 import com.projekat.training_service.dto.TrainingTypeCreateDto;
 import com.projekat.training_service.dto.TrainingTypeDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TrainingTypeMapper {
 
     public TrainingTypeDto trainingTypeToTrainingTypeDto(TrainingType trainingType){

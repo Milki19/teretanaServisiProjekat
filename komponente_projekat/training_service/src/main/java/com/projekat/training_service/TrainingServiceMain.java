@@ -8,7 +8,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableJpaAuditing
 @EnableScheduling
-//@ComponentScan(basePackages = "com.projekat.training_service.mapper")
 public class TrainingServiceMain {
 
 	public static void main(String[] args) {

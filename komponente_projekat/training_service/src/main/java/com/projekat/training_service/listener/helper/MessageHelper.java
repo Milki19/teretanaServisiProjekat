@@ -18,12 +18,10 @@ public class MessageHelper {
     private Validator validator;
     private ObjectMapper objectMapper;
 
-
-    //NEKI AUTOWIRE NE ZNAM STA MU JE
-//    public MessageHelper(Validator validator, ObjectMapper objectMapper) {
-//        this.validator = validator;
-//        this.objectMapper = objectMapper;
-//    }
+    public MessageHelper(Validator validator, ObjectMapper objectMapper) {
+        this.validator = validator;
+        this.objectMapper = objectMapper;
+    }
 
     public <T> T getMessage(Message message, Class<T> clazz) throws RuntimeException, JMSException {
         try {

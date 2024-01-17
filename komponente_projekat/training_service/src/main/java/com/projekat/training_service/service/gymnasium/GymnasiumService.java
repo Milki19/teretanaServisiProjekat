@@ -9,5 +9,6 @@ public interface GymnasiumService {
     Page<GymnasiumDto> findAll(Pageable pageable);
     GymnasiumDto findById(Long id);
     GymnasiumDto add(GymnasiumCreateDto gymCreateDto);
+    GymnasiumDto findGymnasiumByName(String name);
     void deleteById(Long id);
 }

@@ -40,6 +40,12 @@ public class GymnasiumServiceImpl implements GymnasiumService{
     }
 
     @Override
+    public GymnasiumDto findGymnasiumByName(String name) {
+        Gymnasium gymnasium = gymnasiumRepository.findGymnasiumByName(name);
+        return gymnasiumMapper.gymToGymDto(gymnasium);
+    }
+
+    @Override
     public void deleteById(Long id) {
         gymnasiumRepository.deleteById(id);
     }

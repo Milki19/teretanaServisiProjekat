@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/appointment")
@@ -21,6 +20,15 @@ public class AppointmentController {
     public AppointmentController(AppointmentService appointmentService) {
         this.appointmentService = appointmentService;
     }
+
+    //    @ApiOperation(value = "Get all appointments")
+//    @ApiImplicitParams({
+//            @ApiImplicitParam(name = "page", value = "What page number you want", dataType = "string", paramType = "query"),
+//            @ApiImplicitParam(name = "size", value = "Number of items to return", dataType = "string", paramType = "query"),
+//            @ApiImplicitParam(name = "sort", allowMultiple = true, dataType = "string", paramType = "query",
+//                    value = "Sorting criteria in the format: property(,asc|desc). " +
+//                            "Default sort order is ascending. " +
+//                            "Multiple sort criteria are supported.")})
     @GetMapping
     @CheckSecurity(roles = {"ROLE_ADMIN", "ROLE_CLIENT", "ROLE_MANAGER"})
     public ResponseEntity<List<AppointmentDto>> getAll(@RequestHeader("Authorization") String authorization){
@@ -29,14 +37,14 @@ public class AppointmentController {
 
     @GetMapping("/{id}")
     @CheckSecurity(roles = {"ROLE_ADMIN", "ROLE_CLIENT", "ROLE_MANAGER"})
-    public ResponseEntity<AppointmentDto> getAppointment(@RequestHeader("Authorization") String authorization, @PathVariable Long id){
+    public ResponseEntity<AppointmentDto> getAppointment(@RequestHeader("Authorization") String authorization, @PathVariable("id") Long id){
         return new ResponseEntity<>(appointmentService.findById(id), HttpStatus.OK);
     }
 
     @GetMapping("/gym/{id}")
     @CheckSecurity(roles = {"ROLE_ADMIN", "ROLE_CLIENT", "ROLE_MANAGER"})
-    public ResponseEntity<Optional<AppointmentDto>> getAppointmentsByGymID(@RequestHeader("Authorization") String authorization, @PathVariable Long gymId){
-        return new ResponseEntity<>(appointmentService.findByGymId(gymId), HttpStatus.OK);
+    public ResponseEntity<List<AppointmentDto>> getAppointmentsByGymID(@RequestHeader("Authorization") String authorization, @PathVariable("id") Long id){
+        return new ResponseEntity<>(appointmentService.findByGymId(id), HttpStatus.OK);
     }
 
     @PostMapping

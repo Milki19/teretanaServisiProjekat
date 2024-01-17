@@ -26,7 +26,7 @@ public class TrainingController {
         this.trainingService = trainingService;
     }
 
-    @ApiOperation(value = "Get all gym trainings")
+    @ApiOperation(value = "Get all gymnasium trainings")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", value = "What page number you want", dataType = "string", paramType = "query"),
             @ApiImplicitParam(name = "size", value = "Number of items to return", dataType = "string", paramType = "query"),

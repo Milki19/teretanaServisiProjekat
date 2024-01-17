@@ -39,6 +39,12 @@ public class GymnasiumController {
         return new ResponseEntity<>(gymnasiumService.findAll(pageable), HttpStatus.OK);
     }
 
+    @GetMapping("/name")
+    @CheckSecurity(roles = {"ROLE_ADMIN", "ROLE_CLIENT", "ROLE_MANAGER"})
+    public ResponseEntity<GymnasiumDto> findByGymnasiumName(@RequestHeader("Authorization") String authorization, @RequestParam("name") String name){
+        return new ResponseEntity<>(gymnasiumService.findGymnasiumByName(name), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     @CheckSecurity(roles = {"ROLE_ADMIN", "ROLE_CLIENT", "ROLE_MANAGER"})
     public ResponseEntity<GymnasiumDto> getGym(@RequestHeader("Authorization") String authorization, @PathVariable("id") Long id){
@@ -47,8 +53,8 @@ public class GymnasiumController {
 
     @PostMapping
     @CheckSecurity(roles = {"ROLE_ADMIN"})
-    public ResponseEntity<GymnasiumDto> add(@RequestHeader("Authorization") String authorization, @RequestBody @Valid GymnasiumCreateDto gymCreateDto){
-        return new ResponseEntity<>(gymnasiumService.add(gymCreateDto), HttpStatus.CREATED);
+    public ResponseEntity<GymnasiumDto> add(@RequestHeader("Authorization") String authorization, @RequestBody @Valid GymnasiumCreateDto gymnasiumCreateDto){
+        return new ResponseEntity<>(gymnasiumService.add(gymnasiumCreateDto), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")

@@ -77,18 +77,27 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!--Retry-->
-		<!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-retry -->
 		<dependency>
 			<groupId>io.github.resilience4j</groupId>
 			<artifactId>resilience4j-retry</artifactId>
-			<version>1.7.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.tools.javac</groupId>
+					<artifactId>javac</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!--Bulkhead-->
 		<!-- https://mvnrepository.com/artifact/io.github.resilience4j/resilience4j-bulkhead -->
 		<dependency>
 			<groupId>io.github.resilience4j</groupId>
 			<artifactId>resilience4j-bulkhead</artifactId>
-			<version>1.7.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.tools.javac</groupId>
+					<artifactId>javac</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!--Eureka-->
 		<dependency>
@@ -128,6 +137,7 @@
 						<exclude>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
+							<optional>true</optional>
 						</exclude>
 					</excludes>
 				</configuration>
